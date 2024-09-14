@@ -16,7 +16,7 @@ function Book(title, author, pages, readStatus) {
   this.readStatus = readStatus;
 }
 
-function addBookToLibrary() {}
+// function addBookToLibrary() {}
 
 const table = document.querySelector("table");
 
@@ -40,37 +40,39 @@ const createRow = (i) => {
   );
   createTd(library[i].title, object, "text-align:center;font-size:1.2em;");
   createTd(library[i].pages, object, "text-align:center;font-size:1.2em;");
-  const readTd = document.createElement('td');
-  readTd.style.cssText="text-align:center;font-size:1.2em;";
-  readTd.textContent=library[i].readStatus;
+  const readTd = document.createElement("td");
+  readTd.style.cssText = "text-align:center;font-size:1.2em;";
+  readTd.textContent = library[i].readStatus;
   object.appendChild(readTd);
   const td = document.createElement("td");
   object.appendChild(td);
-  deleteButton(td, i);
-  readButton(td, i,readTd);
+  deleteButton(td);
+  readButton(td, i, readTd);
 };
 
-const deleteButton = (parent, i) => {
+const deleteButton = (parent) => {
   const button = document.createElement("button");
   button.textContent = "Delete";
-  button.style.cssText = "background-color:red;padding:1em;width:100px;border:none;margin:1em;border-radius:8px;";
+  button.style.cssText =
+    "background-color:red;padding:1em;width:100px;border:none;margin:1em;border-radius:8px;";
   parent.appendChild(button);
-  button.addEventListener("click", () => {
-    table.deleteRow(i);
+  button.addEventListener("click", function () {
+    this.parentElement.parentElement.remove();
   });
 };
 
-const readButton = (parent, i,read) => {
+const readButton = (parent, i, read) => {
   const button = document.createElement("button");
-  button.style.cssText = "background-color:blue;padding:1em;width:100px;border:none;margin:1em;border-radius:8px;";
-  if (library[i].readStatus == "Yes") {
+  button.style.cssText =
+    "background-color:blue;padding:1em;width:100px;border:none;margin:1em;border-radius:8px;";
+  if (library[i].readStatus === "Yes") {
     button.textContent = "Not Read";
   } else {
     button.textContent = "Mark Read";
   }
   parent.appendChild(button);
   button.addEventListener("click", () => {
-    if (button.textContent == "Not Read") {
+    if (button.textContent === "Not Read") {
       button.textContent = "Mark Read";
       read.textContent = "No";
     } else {
@@ -81,8 +83,21 @@ const readButton = (parent, i,read) => {
 };
 
 const displayTableCells = () => {
-  for (let i = 0; i <library.length; i++) {
+  for (let i = 0; i < library.length; i++) {
     createRow(i);
   }
 };
 displayTableCells();
+
+const dialog = document.querySelector("dialog");
+const showBtn = document.querySelector("#show");
+const closeBtn = document.querySelector("#delete");
+
+showBtn.addEventListener("click",()=>{
+  dialog.show();
+});
+
+closeBtn.addEventListener("click",(e)=>{
+  e.preventDefault();
+  dialog.close();
+});

@@ -10,7 +10,17 @@
 <body>
     <div class="titleContainer">
         <h1>Dr Mohamad Collections</h1>
-        <button>Add New Book</button>
+        <button id="show">Add New Book</button>
+        <dialog>
+            <h1>Add Book Details</h1>
+            <form method="dialog">
+                <div><label for="author">Author:</label><input type="text" id="author" placeholder="Please enter author..."></div>
+                <div><label for="title">Title:</label><input type="text" id="title" placeholder="Please enter title..."></div>
+                <div><label for="pages">Number of Pages:</label><input type="number" id="pages" placeholder="Please enter number..."></div>
+                <button type="submit" id="send">Add Book</button>
+                <button id="delete" formnovalidate>Cancel</button>
+            </form>
+        </dialog>
     </div>
     <table>
         <tr>
