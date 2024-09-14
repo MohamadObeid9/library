@@ -16,9 +16,13 @@ function Book(title, author, pages, readStatus) {
   this.readStatus = readStatus;
 }
 
-// function addBookToLibrary() {}
+function addBookToLibrary(title, author, pages, readStatus) {
+  const newBook = new Book(title, author, pages, readStatus);
+  library.push(newBook);
+  createRow(library.length - 1);
+}
 
-const table = document.querySelector("table");
+const table = document.querySelector("tbody");
 
 const createTd = (text, parent, style) => {
   const object = document.createElement("td");
@@ -45,6 +49,7 @@ const createRow = (i) => {
   readTd.textContent = library[i].readStatus;
   object.appendChild(readTd);
   const td = document.createElement("td");
+  td.style.cssText="display:flex;justify-content:center";
   object.appendChild(td);
   deleteButton(td);
   readButton(td, i, readTd);
@@ -64,7 +69,7 @@ const deleteButton = (parent) => {
 const readButton = (parent, i, read) => {
   const button = document.createElement("button");
   button.style.cssText =
-    "background-color:blue;padding:1em;width:100px;border:none;margin:1em;border-radius:8px;";
+    "background-color:lightskyblue;padding:1em;width:100px;border:none;margin:1em;border-radius:8px;";
   if (library[i].readStatus === "Yes") {
     button.textContent = "Not Read";
   } else {
@@ -90,14 +95,23 @@ const displayTableCells = () => {
 displayTableCells();
 
 const dialog = document.querySelector("dialog");
+const addBtn = document.querySelector("#add");
 const showBtn = document.querySelector("#show");
 const closeBtn = document.querySelector("#delete");
 
-showBtn.addEventListener("click",()=>{
+showBtn.addEventListener("click", () => {
   dialog.show();
 });
 
-closeBtn.addEventListener("click",(e)=>{
+closeBtn.addEventListener("click", (e) => {
   e.preventDefault();
   dialog.close();
+});
+
+addBtn.addEventListener("click", () => {
+  const author = document.querySelector("#author").value;
+  const title = document.querySelector("#title").value;
+  const pages = Number(document.querySelector("#pages").value);
+  const readStatus = document.querySelector("#readStatus").value;
+  addBookToLibrary(title, author, pages, readStatus);
 });

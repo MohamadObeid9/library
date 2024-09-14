@@ -9,7 +9,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: 50px;
+}
+a{
+  text-decoration: none;
+  color:rgb(126 34 206);
 }
 .titleContainer {
   display: flex;
@@ -42,6 +46,7 @@ th {
   background-color: rgb(34, 34, 59);
 }
 dialog {
+  letter-spacing:1px;
   position:absolute;
   top:20%;
   left:20%;
@@ -86,4 +91,13 @@ dialog #delete {
   padding: 15px 40px;
   border: none;
   border-radius: 7px;
+}
+label[for="readStatus"]{
+  margin-right:25px;
+}
+label[for="readStatus"] + select{
+  width:100px;
+  padding:3px;
+  text-align:center;
+  color:rgb(34, 34, 59);
 }
