@@ -1,11 +1,11 @@
 const library = [];
 
-const book1 = new Book("book1", "mo", 99, "No");
-const book2 = new Book("book2", "mo", 99, "Yes");
-const book3 = new Book("book3", "mo", 99, "No");
-const book4 = new Book("book4", "mo", 99, "Yes");
-const book5 = new Book("book5", "mo", 99, "No");
-const book6 = new Book("book6", "mo", 99, "Yes");
+const book1 = new Book("The Alchemist", "Paulo Coelho", 445, "No");
+const book2 = new Book("The way of men", "Jack Donovan", 356, "Yes");
+const book3 = new Book("The Ambler Warning", "Robert Ludlum", 449, "No");
+const book4 = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Yes");
+const book5 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, "No");
+const book6 = new Book("1984", "George Orwell", 328, "Yes");
 
 library.push(book1, book2, book3, book4, book5, book6);
 
