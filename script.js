@@ -1,5 +1,14 @@
 const library = [];
 
+class Book {
+  constructor(title, author, pages, readStatus) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readStatus = readStatus;
+  }
+}
+//always initsialze classes before using them
 const book1 = new Book("The Alchemist", "Paulo Coelho", 445, "No");
 const book2 = new Book("The way of men", "Jack Donovan", 356, "Yes");
 const book3 = new Book("The Ambler Warning", "Robert Ludlum", 449, "No");
@@ -9,14 +18,14 @@ const book6 = new Book("1984", "George Orwell", 328, "Yes");
 
 library.push(book1, book2, book3, book4, book5, book6);
 
-class Book {
-  constructor(title, author, pages, readStatus) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.readStatus = readStatus;
-  }
-}
+// class Book {
+//   constructor(title, author, pages, readStatus) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.readStatus = readStatus;
+//   }
+// }
 
 function addBookToLibrary(title, author, pages, readStatus) {
   const newBook = new Book(title, author, pages, readStatus);
