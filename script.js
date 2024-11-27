@@ -9,11 +9,13 @@ const book6 = new Book("1984", "George Orwell", 328, "Yes");
 
 library.push(book1, book2, book3, book4, book5, book6);
 
-function Book(title, author, pages, readStatus) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.readStatus = readStatus;
+class Book {
+  constructor(title, author, pages, readStatus) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readStatus = readStatus;
+  }
 }
 
 function addBookToLibrary(title, author, pages, readStatus) {
@@ -49,7 +51,7 @@ const createRow = (i) => {
   readTd.textContent = library[i].readStatus;
   object.appendChild(readTd);
   const td = document.createElement("td");
-  td.style.cssText="display:flex;justify-content:center";
+  td.style.cssText = "display:flex;justify-content:center";
   object.appendChild(td);
   deleteButton(td);
   readButton(td, i, readTd);
