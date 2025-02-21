@@ -9,9 +9,11 @@ const addNewBook = () => {
   const title = document.querySelector("#title") as HTMLInputElement;
   const pages = document.querySelector("#pages") as HTMLInputElement;
   const readStatus = document.querySelector("#readStatus") as HTMLInputElement;
+  const header = document.querySelector(".header") as HTMLElement;
 
   showBtn.addEventListener("click", () => {
     dialog.show();
+    header.classList.remove("sticky");
   });
 
   closeBtn.addEventListener("click", (e) => {
@@ -40,6 +42,7 @@ const addNewBook = () => {
     }
 
     if (author.value && title.value && pages.value) {
+      header.classList.add("sticky");
       addBookToLibrary(
         title.value,
         author.value,
