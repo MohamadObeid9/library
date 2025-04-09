@@ -11,12 +11,15 @@ const readButton = (
   button.classList.add(
     "bg-sky-500",
     "text-slate-700",
-    'font-bold',
-    "px-10",
-    "py-5",
-    "w-100",
+    "font-bold",
+    // "text-sm",
+    // "px-5",
+    "py-1",
+    "md:px-10",
+    "md:py-5",
     "border-none",
-    "m-4",
+    "m-1",
+    "md:m-4",
     "rounded-lg"
   );
 
