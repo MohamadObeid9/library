@@ -7,120 +7,127 @@
   <script defer src="main.js"></script></head>
 
   <body
-    class="w-screen flex flex-col h-screen overflow-hidden justify-center items-center p-12"
+    class="flex flex-col h-screen overflow-hidden justify-center items-center p-2 md:p-22"
   >
+    <!-- Header -->
     <div class="flex justify-between items-center w-full mb-4">
       <a href="https://github.com/MohamadObeid9" class="text-fuchsia-800"
-        ><h1 class="text-fuchsia-800 text-2xl">Dr Mohamad Collections</h1></a
+        ><h1 class="text-fuchsia-800 text-lg md:text-2xl">
+          Dr Mohamad Collections
+        </h1></a
       >
       <button
         id="show"
-        class="bg-fuchsia-800 border-none rounded-xl px-10 py-4 text-sky-400 text-lg"
+        class="bg-fuchsia-800 border-none rounded-xl px-5 py-2 md:px-10 md:py-4 text-sky-400 text-lg md:text-xl"
       >
         Add New Book
       </button>
+      <!-- Dialog -->
       <dialog
-        class="absolute top-10 left-20 p-5 w-1/2 bg-fuchsia-950 rounded-xl border-none"
+        class="absolute top-20 rigth-20 p-5 min-w-1/2 bg-fuchsia-950 rounded-xl border-none"
       >
-        <h1 class="text-center mb-3 text-5xl text-fuchsia-600">
+        <h1 class="text-center mb-3 text-2xl md:text-4xl text-fuchsia-600">
           Add Book Details
         </h1>
         <form method="dialog">
-          <div>
-            <label class="text-2xl text-white" for="author">Author:</label
+          <div class="my-5">
+            <label class="md:text-2xl text-lg text-white" for="author"
+              >Author:</label
             ><input
-              class="w-full p-3 my-5 rounded-lg placeholder:text-slate-500"
+              class="w-full p-2 md:p-3 mt-3 rounded-lg placeholder:text-slate-500 md:placeholder:text-sm"
               type="text"
               id="author"
               placeholder="Please enter author..."
               required
             />
           </div>
-          <div>
-            <label class="text-2xl text-white" for="title">Title:</label
+          <div class="my-5">
+            <label class="md:text-2xl text-lg text-white" for="title"
+              >Title:</label
             ><input
-              class="w-full p-3 my-5 rounded-lg placeholder:text-slate-500"
+              class="w-full p-2 md:p-3 mt-3 rounded-lg placeholder:text-slate-500 md:placeholder:text-sm"
               type="text"
               id="title"
               placeholder="Please enter title..."
               required
             />
           </div>
-          <div>
-            <label class="text-2xl text-white" for="pages"
+          <div class="my-5">
+            <label class="md:text-2xl text-lg text-white" for="pages"
               >Number Of Pages:</label
             ><input
-              class="w-full p-3 my-5 rounded-lg placeholder:text-slate-500"
+              class="w-full p-2 md:p-3 mt-3 rounded-lg placeholder:text-slate-500 md:placeholder:text-sm"
               type="number"
               id="pages"
               placeholder="Please enter number..."
               required
             />
           </div>
-          <div>
-            <label class="text-2xl text-white" for="readStatus"
+          <div class="my-5">
+            <label class="md:text-2xl text-lg text-white" for="readStatus"
               >Read Status:</label
-            ><select id="readStatus" class="rounded-lg py-5 px-10">
+            ><select id="readStatus" class="rounded-lg">
               <option value="Yes">Yes</option>
               <option value="No" selected>No</option>
             </select>
           </div>
-          <button
-            type="submit"
-            id="add"
-            class="w-full p-4 rounded-lg border-none text-xl my-4 bg-fuchsia-700"
-          >
-            Add Book
-          </button>
-          <button
-            id="delete"
-            class="relative left-1/3 text-xl bg-red-600 py-4 px-20 border-none rounded-lg"
-            formnovalidate
-          >
-            Cancel
-          </button>
+          <div class="my-3 w-full flex justify-center gap-5">
+            <button
+              type="submit"
+              id="add"
+              class="bg-fuchsia-700 border-none rounded-lg py-2 w-1/2"
+            >
+              Add Book
+            </button>
+            <button
+              id="delete"
+              class="bg-red-600 border-none rounded-lg py-2 w-1/2"
+              formnovalidate
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       </dialog>
     </div>
+    <!-- Table -->
     <div class="min-h-[70%] w-full overflow-auto">
-      <table
-        class="border-collapse font-sans w-full tracking-wide text-center text-sm static"
-      >
-        <thead>
-          <tr class="sticky top-0 header">
-            <th
-              scope="col"
-              class="uppercase px-3 py-6 text-primary text-lg bg-slate-900"
-            >
-              Author
-            </th>
-            <th
-              scope="col"
-              class="uppercase px-3 py-6 text-primary text-lg bg-slate-900"
-            >
-              Title
-            </th>
-            <th
-              scope="col"
-              class="uppercase px-3 py-6 text-primary text-lg bg-slate-900"
-            >
-              Pages
-            </th>
-            <th
-              scope="col"
-              class="uppercase px-3 py-6 text-primary text-lg bg-slate-900"
-            >
-              Read
-            </th>
-            <th
-              scope="col"
-              class="uppercase px-3 py-6 text-primary text-lg bg-slate-900"
-            >
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody></tbody>
+      <table class="border-collapse font-sans w-full tracking-wide text-center">
+      <thead>
+        <tr class="sticky top-0 header">
+        <th
+          scope="col"
+          class="uppercase px-3 py-6 text-sm md:text-lg bg-slate-900 text-primary"
+        >
+          Author
+        </th>
+        <th
+          scope="col"
+          class="uppercase px-3 py-6 text-sm md:text-lg bg-slate-900 text-primary"
+        >
+          Title
+        </th>
+        <th
+          scope="col"
+          class="uppercase px-3 py-6 text-sm md:text-lg bg-slate-900 text-primary"
+        >
+          Pages
+        </th>
+        <th
+          scope="col"
+          class="uppercase px-3 py-6 text-sm md:text-lg bg-slate-900 text-primary"
+        >
+          Read
+        </th>
+        <th
+          scope="col"
+          class="uppercase px-3 py-6 text-sm md:text-lg bg-slate-900 text-primary"
+        >
+          Actions
+        </th>
+        </tr>
+      </thead>
+      <tbody></tbody>
       </table>
     </div>
   </body>
